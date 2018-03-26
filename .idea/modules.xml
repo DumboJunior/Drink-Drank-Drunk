@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DrinkDrankDrunk.iml" filepath="$PROJECT_DIR$/DrinkDrankDrunk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Drink-Drank-Drunk.iml" filepath="$PROJECT_DIR$/.idea/Drink-Drank-Drunk.iml" />
+      <module fileurl="file://C:\Users\jensh\OneDrive - Syddansk Universitet\Uni SDU\Android Drink Drank Drunk\Drink-Drank-Drunk\DrinkDrankDrunk.iml" filepath="C:\Users\jensh\OneDrive - Syddansk Universitet\Uni SDU\Android Drink Drank Drunk\Drink-Drank-Drunk\DrinkDrankDrunk.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
