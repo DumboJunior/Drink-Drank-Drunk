@@ -4,5 +4,6 @@
     <string name="indtast_v_gt">Indtast vægt</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
-    <string name="hej">Hej</string>
+    <string name="hej"></string>
+    <string name="textview">TextView</string>
 </resources>
