@@ -16,7 +16,7 @@ public class Results extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.textView2);
         Intent intent = getIntent();
         s = intent.getStringExtra("s");
-        s = "Din promille er: " + s;
+        s = "Din promille er:\n" + s;
         tv.setText(s);
     }
 }

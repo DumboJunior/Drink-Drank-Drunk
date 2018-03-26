@@ -47,7 +47,9 @@ public class MainActivity extends AppCompatActivity {
         }else{
             promile = vaegten2/(vaegten*0.55);
         }
-        
+        promile = promile*100;
+        promile = Math.floor(promile);
+        promile = promile/100;
         pro = String.valueOf(promile);
         startNewView.putExtra("s",pro);
 
