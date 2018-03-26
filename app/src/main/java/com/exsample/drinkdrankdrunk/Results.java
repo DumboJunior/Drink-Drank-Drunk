@@ -3,11 +3,16 @@ package com.exsample.drinkdrankdrunk;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class Results extends AppCompatActivity {
     String s;
+    String s2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,5 +23,10 @@ public class Results extends AppCompatActivity {
         s = intent.getStringExtra("s");
         s = "Din promille er:\n" + s;
         tv.setText(s);
+
+        TextView tv3 = (TextView) findViewById(R.id.textView3);
+        s2 = intent.getStringExtra("s2");
+        tv3.setText(s2);
+
     }
 }

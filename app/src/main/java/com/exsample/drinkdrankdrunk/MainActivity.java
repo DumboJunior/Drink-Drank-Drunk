@@ -13,6 +13,7 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
     boolean gender = true;
     public String pro;
+    public String kore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +51,21 @@ public class MainActivity extends AppCompatActivity {
         promile = promile*100;
         promile = Math.floor(promile);
         promile = promile/100;
+
         pro = String.valueOf(promile);
         startNewView.putExtra("s",pro);
+
+        if (promile > 0.5) {
+            kore = "Du må ikke køre endnu! Lad bilen stå!";
+        }
+        else if (promile < 0.4) {
+            kore = "Du må gerne køre bil :)";
+        }
+        else {
+            kore = "Tænk dig om en ekstra gang, du er tæt på grænsen!";
+        }
+
+        startNewView.putExtra("s2", kore);
 
         startActivity(startNewView);
 
