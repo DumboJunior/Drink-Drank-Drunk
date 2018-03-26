@@ -42,11 +42,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         double promile = 0;
+        double sex;
 
         if(gender == true){
            promile = vaegten2/(vaegten*0.7);
+           sex = 0.7;
         }else{
             promile = vaegten2/(vaegten*0.55);
+            sex = 0.55;
         }
         promile = promile*100;
         promile = Math.floor(promile);
@@ -66,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         startNewView.putExtra("s2", kore);
-
+        startNewView.putExtra("sex",sex);
         startActivity(startNewView);
 
     }
