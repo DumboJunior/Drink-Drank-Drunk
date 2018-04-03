@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     boolean gender = true;
     public String pro;
     public String kore;
+    public String sex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,21 +43,20 @@ public class MainActivity extends AppCompatActivity {
 
 
         double promile = 0;
-        double sex;
 
         if(gender == true){
            promile = vaegten2/(vaegten*0.7);
-           sex = 0.7;
+           sex = "0.7";
         }else{
             promile = vaegten2/(vaegten*0.55);
-            sex = 0.55;
+            sex = "0.55";
         }
         promile = promile*100;
         promile = Math.floor(promile);
         promile = promile/100;
 
         pro = String.valueOf(promile);
-        startNewView.putExtra("s",pro);
+
 
         if (promile > 0.5) {
             kore = "Du må ikke køre endnu! Lad bilen stå!";
@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
             kore = "Tænk dig om en ekstra gang, du er tæt på grænsen!";
         }
 
+        startNewView.putExtra("s",pro);
         startNewView.putExtra("s2", kore);
         startNewView.putExtra("sex",sex);
         startActivity(startNewView);
