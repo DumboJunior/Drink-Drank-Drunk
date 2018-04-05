@@ -18,14 +18,14 @@ public class Metabolisme extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_metabolisme);
         Intent intent = getIntent();
-        sex = intent.getStringExtra("sex");
+        sex = intent.getStringExtra("sex");            // Får variabler fra anden activity
         promil = intent.getStringExtra("promil");
 
         double promille;
-        promille = Double.parseDouble(promil);
+        promille = Double.parseDouble(promil);          // String to Double
         double gender;
-        gender = Double.parseDouble(sex);
-        double y,x; x=0;
+        gender = Double.parseDouble(sex);               // String to Double
+
 
 
         TextView promil_tv = (TextView) findViewById(R.id.textView5);
@@ -34,12 +34,27 @@ public class Metabolisme extends AppCompatActivity {
         TextView sex_tv = (TextView) findViewById(R.id.textView6);
         sex_tv.setText(sex);
 
-        GraphView graph = (GraphView) findViewById(R.id.graph);
+
+        /****** find y0****
+          int imax=0; double y0=1,x0=0;
+          while(y0!=0){
+              x0=x0+0.1;
+              y0=-115/(1000 * gender)*x0+promille;
+              imax=imax+1;
+          }
+
+        **** end *******/
+
+
+
+
+        double y,x; x=0;
+        GraphView graph = (GraphView) findViewById(R.id.graph);                     /*Plotter grafen*/
         series = new LineGraphSeries<DataPoint>();
-        for(int i=0; i<240;i++){
+        for(int i=0; i<240;i++){                                                   // 240 burde blive skiftet ud med imax
         x= x+0.1;
         y=-115/(1000 * gender)*x+promille;
-        series.appendData(new DataPoint(x,y),true,200);
+        series.appendData(new DataPoint(x,y),true,240);     // 240 burde blive skiftet ud med imax
         }
         graph.addSeries(series);
 
