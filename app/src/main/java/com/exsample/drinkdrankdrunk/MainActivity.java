@@ -1,5 +1,6 @@
 package com.exsample.drinkdrankdrunk;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -47,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
             numberOfDrinks_tv.setText(numberOfDrinks_string);
         }
     }
+
+    public void changeView_Games(View view){
+        //BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        //if (mBluetoothAdapter != null) {
+            Intent startGamesView = new Intent(this, Games.class);
+            startActivity(startGamesView);
+        }
+
 
     public void change_view(View view){
         Intent startNewView = new Intent(this, Results.class);
