@@ -55,18 +55,17 @@ public class MainActivity extends AppCompatActivity {
         String value = vaegt.getText().toString();
         int vaegten = Integer.parseInt(value);
 
-        EditText vaegt2 = (EditText) findViewById(R.id.editText2);
-        String value2 = vaegt2.getText().toString();
-        int vaegten2 = Integer.parseInt(value2);
+        int avg_Alko_gram = 12;                                     //Gemmensnit på indhold af gram i en genstand (taget fra wiki).
 
+        int alkohol = avg_Alko_gram*numberOfDrinks;
 
         double promile = 0;
 
         if(gender == true){
-           promile = vaegten2/(vaegten*0.7);
+           promile = alkohol/(vaegten*0.7);
            sex = "0.7";
         }else{
-            promile = vaegten2/(vaegten*0.55);
+            promile = alkohol/(vaegten*0.55);
             sex = "0.55";
         }
         promile = promile*100;
