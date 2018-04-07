@@ -1,6 +1,7 @@
 package com.exsample.drinkdrankdrunk;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     public String pro;
     public String kore;
     public String sex;
+    public int numberOfDrinks = 0;
+    public String numberOfDrinks_string;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +30,21 @@ public class MainActivity extends AppCompatActivity {
             gender = true;
         }else{
             gender = false;
+        }
+    }
+    public void actionButtonUp(View view){
+            numberOfDrinks+=1;
+            numberOfDrinks_string = Integer.toString(numberOfDrinks);
+            TextView numberOfDrinks_tv = (TextView) findViewById(R.id.textView4);
+            numberOfDrinks_tv.setText(numberOfDrinks_string);
+    }
+
+    public void actionButtonDown(View view){
+        if(numberOfDrinks>0) {
+            numberOfDrinks -= 1;
+            numberOfDrinks_string = Integer.toString(numberOfDrinks);
+            TextView numberOfDrinks_tv = (TextView) findViewById(R.id.textView4);
+            numberOfDrinks_tv.setText(numberOfDrinks_string);
         }
     }
 
