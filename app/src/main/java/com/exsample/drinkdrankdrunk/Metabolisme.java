@@ -51,7 +51,7 @@ public class Metabolisme extends NavigationDrawer {
 
 
 
-        double y,x; x=0;
+        double y,x; x=-0.12;
         int check=0;
         GraphView graph = (GraphView) findViewById(R.id.graph);                     /*Plotter grafen*/
         series = new LineGraphSeries<DataPoint>();
@@ -68,12 +68,25 @@ public class Metabolisme extends NavigationDrawer {
             String timeThenSober="Om"+" " +x_time2Drive_string+" "+"timer kan du køre bil";
             promil_tv.setText(timeThenSober);
             }
-        if(y>=0){
+        if(y>=-0.02){
         series.appendData(new DataPoint(x,y),true,240);}// 240 burde blive skiftet ud med imax
-        if(y<0){
-            break;
         }
-        }
+        // set manual X bounds
+        graph.getViewport().setYAxisBoundsManual(true);
+        graph.getViewport().setMinY(0);
+        graph.getViewport().setMaxY(promille+0.2);
+
+        graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setMinX(-0.02);
+        graph.getViewport().setMaxX(x);
+
+        // enable scaling and scrolling
+        graph.getViewport().setScalable(true);
+        graph.getViewport().setScalableY(true);
+        graph.getViewport().setScrollable(true); // enables horizontal scrolling
+        graph.getViewport().setScrollableY(true); // enables vertical scrolling
+        graph.getViewport().setScalable(true); // enables horizontal zooming and scrolling
+        graph.getViewport().setScalableY(true); // enables vertical zooming and scrolling
         graph.addSeries(series);
 
 
