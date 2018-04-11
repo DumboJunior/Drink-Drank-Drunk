@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.exsample.drinkdrankdrunk.ConnectToGame">
 
+    <TextView
+        android:id="@+id/bluetoothAdress"
+        android:layout_width="234dp"
+        android:layout_height="179dp"
+        android:text="@string/bluetooth_adresser"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="42dp" />
 </android.support.constraint.ConstraintLayout>

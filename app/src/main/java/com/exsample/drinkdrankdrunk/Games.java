@@ -4,6 +4,9 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+
+import java.nio.channels.InterruptedByTimeoutException;
 
 public class Games extends AppCompatActivity {
 
@@ -22,5 +25,12 @@ public class Games extends AppCompatActivity {
             startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
         }
     }
-
+    public void changeview_Connect2Game(View view){
+        Intent connect_intent = new Intent(this, ConnectToGame.class);
+        startActivity(connect_intent);
+    }
+    public void changeview_HostGame(View view){
+        Intent hostGame_intent = new Intent(this,HostGame.class);
+        startActivity(hostGame_intent);
+    }
 }
