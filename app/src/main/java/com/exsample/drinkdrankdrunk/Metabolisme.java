@@ -1,22 +1,29 @@
 package com.exsample.drinkdrankdrunk;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
-public class Metabolisme extends AppCompatActivity {
+public class Metabolisme extends NavigationDrawer {
     String sex;
     String promil;
     LineGraphSeries<DataPoint> series;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_metabolisme);
+        LayoutInflater inflater = (LayoutInflater) this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.activity_metabolisme, null, false);
+        mDrawerLayout.addView(contentView, 0);
+        //setContentView(R.layout.activity_metabolisme);
         Intent intent = getIntent();
         sex = intent.getStringExtra("sex");            // Får variabler fra anden activity
         promil = intent.getStringExtra("promil");
@@ -58,11 +65,14 @@ public class Metabolisme extends AppCompatActivity {
             x_time2Drive=Math.floor(x_time2Drive);
             x_time2Drive=x_time2Drive/100;
             String x_time2Drive_string = Double.toString(x_time2Drive);
-            String timeThenSober=getString(R.string.timeWhenSober)+" " +x_time2Drive_string+" "+getString(R.string.timeWhenSober2);
+            String timeThenSober="Om"+" " +x_time2Drive_string+" "+"timer kan du køre bil";
             promil_tv.setText(timeThenSober);
             }
         if(y>=0){
         series.appendData(new DataPoint(x,y),true,240);}// 240 burde blive skiftet ud med imax
+        if(y<0){
+            break;
+        }
         }
         graph.addSeries(series);
 

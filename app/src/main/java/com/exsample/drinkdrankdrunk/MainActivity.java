@@ -1,10 +1,13 @@
 package com.exsample.drinkdrankdrunk;
 
 import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,7 +15,7 @@ import android.widget.ToggleButton;
 
 import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends NavigationDrawer {
     boolean gender = true;
     public String pro;
     public String kore;
@@ -22,7 +25,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        LayoutInflater inflater = (LayoutInflater) this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.activity_main, null, false);
+        mDrawerLayout.addView(contentView, 0);
+        //setContentView(R.layout.activity_main);
     }
     public void onToggleClicked(View view){
         boolean on = ((ToggleButton) view).isChecked();

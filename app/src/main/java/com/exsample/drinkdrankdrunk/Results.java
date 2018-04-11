@@ -1,8 +1,10 @@
 package com.exsample.drinkdrankdrunk;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,14 +12,18 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-public class Results extends AppCompatActivity {
+public class Results extends NavigationDrawer {
     String s;
     String s2;
     String sex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.results);
+        LayoutInflater inflater = (LayoutInflater) this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.results, null, false);
+        mDrawerLayout.addView(contentView, 0);
+        //setContentView(R.layout.results);
 
         TextView tv = (TextView) findViewById(R.id.textView2);
         Intent intent = getIntent();

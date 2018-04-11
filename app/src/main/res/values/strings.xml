@@ -9,7 +9,8 @@
     <string name="test_promil">test_promil</string>
     <string name="textview">TextView</string>
     <string name="Drinks"></string>
-    <string name="bluetooth_adresser">Bluetooth adresser</string>
-    <string name="timeWhenSober">Om </string>
-    <string name="timeWhenSober2"> timer må du køre bil igen</string>
+    <string name="bluetooth_adresser">bluetooth_adresser</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
