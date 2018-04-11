@@ -31,10 +31,6 @@ public class Metabolisme extends AppCompatActivity {
         TextView promil_tv = (TextView) findViewById(R.id.textView5);
         promil_tv.setText(promil);
 
-        TextView sex_tv = (TextView) findViewById(R.id.textView6);
-        sex_tv.setText(sex);
-
-
         /****** find y0****
           int imax=0; double y0=1,x0=0;
           while(y0!=0){

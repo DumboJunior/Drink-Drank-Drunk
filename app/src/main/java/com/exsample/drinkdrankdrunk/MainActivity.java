@@ -50,11 +50,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeView_Games(View view){
-        //BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        //if (mBluetoothAdapter != null) {
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (mBluetoothAdapter != null) {
             Intent startGamesView = new Intent(this, Games.class);
             startActivity(startGamesView);
         }
+    }
 
 
     public void change_view(View view){
