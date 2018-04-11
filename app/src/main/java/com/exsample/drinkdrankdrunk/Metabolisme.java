@@ -49,12 +49,24 @@ public class Metabolisme extends AppCompatActivity {
 
 
         double y,x; x=0;
+        int check=0;
         GraphView graph = (GraphView) findViewById(R.id.graph);                     /*Plotter grafen*/
         series = new LineGraphSeries<DataPoint>();
         for(int i=0; i<240;i++){                                                   // 240 burde blive skiftet ud med imax
         x= x+0.1;
         y=-115/(1000 * gender)*x+promille;
-        series.appendData(new DataPoint(x,y),true,240);     // 240 burde blive skiftet ud med imax
+        if(y>0&& y<0.5 && check==0){
+            check=1;
+            double x_time2Drive=x;
+            x_time2Drive *=100;
+            x_time2Drive=Math.floor(x_time2Drive);
+            x_time2Drive=x_time2Drive/100;
+            String x_time2Drive_string = Double.toString(x_time2Drive);
+            String timeThenSober=getString(R.string.timeWhenSober)+" " +x_time2Drive_string+" "+getString(R.string.timeWhenSober2);
+            promil_tv.setText(timeThenSober);
+            }
+        if(y>=0){
+        series.appendData(new DataPoint(x,y),true,240);}// 240 burde blive skiftet ud med imax
         }
         graph.addSeries(series);
 
