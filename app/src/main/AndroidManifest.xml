@@ -14,19 +14,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Results"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Metabolisme"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Games"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".HostGame"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ConnectToGame"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".FrontPage"
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Results"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Metabolisme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Games"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HostGame"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ConnectToGame"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FrontPage"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,8 +41,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NavigationDrawer"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".NavigationDrawer"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

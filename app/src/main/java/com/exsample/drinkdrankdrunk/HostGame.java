@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 public class HostGame extends NavigationDrawer {
-
+    AcceptT acceptThread = new AcceptT();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,12 +18,16 @@ public class HostGame extends NavigationDrawer {
         View contentView = inflater.inflate(R.layout.activity_host_game, null, false);
         mDrawerLayout.addView(contentView, 0);
         //setContentView(R.layout.activity_host_game);
+
+        acceptThread.start();
+
+
     }
     protected void onStart(){
         super.onStart();
-        Intent discoverableIntent =
-                new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-       // discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
+        Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+       // discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);   //Sætter synligheden til et bedstemt
         startActivity(discoverableIntent);
+
     }
 }
