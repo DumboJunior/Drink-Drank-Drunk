@@ -1,5 +1,6 @@
 package com.exsample.drinkdrankdrunk;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -44,8 +45,14 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
                 startActivity(startFrontPage);
                 break;
             case R.id.games:
-                Intent startGamesIntent = new Intent(this,Games.class);
-                startActivity(startGamesIntent);
+                BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+                if (mBluetoothAdapter != null) {
+                    Intent startGamesIntent = new Intent(this, Games.class);
+                    startActivity(startGamesIntent);
+                }
+                else {
+                    Toast.makeText(this,"Bluetooth findes ikke på denne enhed!",Toast.LENGTH_LONG).show();
+                }
                 break;
             case R.id.promille:
                 Intent mainActivityIntent = new Intent(this,MainActivity.class);
