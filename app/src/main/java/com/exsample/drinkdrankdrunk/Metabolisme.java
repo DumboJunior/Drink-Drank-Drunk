@@ -49,8 +49,6 @@ public class Metabolisme extends NavigationDrawer {
         **** end *******/
 
 
-
-
         double y,x; x=-0.12;
         int check=0;
         GraphView graph = (GraphView) findViewById(R.id.graph);                     /*Plotter grafen*/
