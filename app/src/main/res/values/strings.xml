@@ -17,4 +17,7 @@
     <string name="discover">Discover</string>
     <string name="discoverability">Discoverability</string>
     <string name="on_off">ON/OFF</string>
+    <string name="start_connection">Start Connection</string>
+    <string name="send">SEND</string>
+    <string name="incoming_text_message">Incoming text message</string>
 </resources>
