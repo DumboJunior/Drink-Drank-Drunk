@@ -1,5 +1,6 @@
 package com.exsample.drinkdrankdrunk;
 
+import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
@@ -7,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -81,9 +83,7 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
         View contentView = inflater.inflate(R.layout.activity_games, null, false);
         mDrawerLayout.addView(contentView, 0);
         //setContentView(R.layout.activity_games);
-        lvNewDevices = (ListView) findViewById(R.id.lvNewDevices);
-        mBTDevices = new ArrayList<>();
-        lvNewDevices.setOnItemClickListener(Games.this);
+
 
         //Broadcasts when bond state changes (ie:pairing)
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
@@ -113,6 +113,9 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
                 etSend.setText("");
             }
         });
+        lvNewDevices = (ListView) findViewById(R.id.lvNewDevices);
+        mBTDevices = new ArrayList<>();
+        lvNewDevices.setOnItemClickListener(Games.this);
     }
 
      BroadcastReceiver mReceiverMessage = new BroadcastReceiver() {
@@ -157,6 +160,10 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
     };
     public void refress_recycleview(View view){
         Log.d(TAG,"Button Pressed....");
+        int MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 1;
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION);
         if(mBluetoothAdapter.isDiscovering()){
             Log.d(TAG,"Cancel");
             mBluetoothAdapter.cancelDiscovery();
