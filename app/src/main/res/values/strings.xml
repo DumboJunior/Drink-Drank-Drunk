@@ -15,4 +15,6 @@
     <string name="close">Close</string>
     <string name="frontpage">FrontPage</string>
     <string name="discover">Discover</string>
+    <string name="discoverability">Discoverability</string>
+    <string name="on_off">ON/OFF</string>
 </resources>

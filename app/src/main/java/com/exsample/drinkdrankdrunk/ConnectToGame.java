@@ -28,6 +28,7 @@ public class ConnectToGame extends NavigationDrawer implements AdapterView.OnIte
     BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     public ArrayList<BluetoothDevice> mBTDevices = new ArrayList<>();
     public DeviceListAdapter mDeviceListAdapter;
+    static final String TAG = "ConnectToGame";
     ListView lvNewDevices;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class ConnectToGame extends NavigationDrawer implements AdapterView.OnIte
         View contentView = inflater.inflate(R.layout.activity_connect_to_game, null, false);
         mDrawerLayout.addView(contentView, 0);
         //setContentView(R.layout.activity_connect_to_game);
-        lvNewDevices = (ListView) findViewById(R.id.lvNewDevices);
+        lvNewDevices = (ListView) findViewById(R.id.lvNewDevices2);
         mBTDevices = new ArrayList<>();
         lvNewDevices.setOnItemClickListener(ConnectToGame.this);
     }
@@ -47,7 +48,7 @@ public class ConnectToGame extends NavigationDrawer implements AdapterView.OnIte
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
-
+            Log.d(TAG,"onReceive: action...");
 
             if (action.equals(BluetoothDevice.ACTION_FOUND)){
                 BluetoothDevice device = intent.getParcelableExtra (BluetoothDevice.EXTRA_DEVICE);
@@ -58,13 +59,16 @@ public class ConnectToGame extends NavigationDrawer implements AdapterView.OnIte
         }
     };
     public void refress_recycleview(View view){
+        Log.d(TAG,"Button Pressed....");
         if(mBluetoothAdapter.isDiscovering()){
+            Log.d(TAG,"Cancel");
             mBluetoothAdapter.cancelDiscovery();
             mBluetoothAdapter.startDiscovery();
             IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
             registerReceiver(mReceiver, filter);
         }
         if(!mBluetoothAdapter.isDiscovering()){
+            Log.d(TAG,"Starting");
             mBluetoothAdapter.startDiscovery();
             IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
             registerReceiver(mReceiver, filter);
