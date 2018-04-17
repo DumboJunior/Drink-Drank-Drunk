@@ -176,8 +176,6 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
                  incomingMessages.setText(messages);
              }
              incomingMessages.setText(results_ssp);
-                 text = "";
-                 valg = "";
          }
 
 
