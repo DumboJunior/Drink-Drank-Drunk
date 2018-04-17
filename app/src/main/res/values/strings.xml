@@ -20,4 +20,7 @@
     <string name="start_connection">Start Connection</string>
     <string name="send">SEND</string>
     <string name="incoming_text_message">Incoming text message</string>
+    <string name="papir">Papir</string>
+    <string name="saks">Saks</string>
+    <string name="sten">Sten</string>
 </resources>

@@ -37,6 +37,11 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
     Button btnStartConnection;
     Button btnSend;
     EditText etSend;
+    Button btnSten;
+    Button btnSaks;
+    Button btnPapir;
+    String valg;
+    String results_ssp;
 
     TextView incomingMessages;
     StringBuilder messages;
@@ -92,7 +97,9 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
         btnStartConnection = (Button) findViewById(R.id.btnStartConnection);
         btnSend = (Button) findViewById(R.id.btnSend);
         etSend = (EditText) findViewById(R.id.editText);
-
+        btnPapir = (Button) findViewById(R.id.papir);
+        btnSaks = (Button) findViewById(R.id.saks);
+        btnSten = (Button) findViewById(R.id.sten);
         incomingMessages = (TextView) findViewById(R.id.incomingMessage);
         messages = new StringBuilder();
 
@@ -107,10 +114,28 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                byte[] bytes = etSend.getText().toString().getBytes(Charset.defaultCharset());
+                byte[] bytes = valg.getBytes(Charset.defaultCharset());
                 mBluetoothConnection.write(bytes);
 
                 etSend.setText("");
+            }
+        });
+        btnSten.setOnClickListener(new View.OnClickListener(){
+            @Override
+                    public void onClick(View view){
+                    valg = "sten";
+            }
+            });
+        btnPapir.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                valg = "papir";
+            }
+        });
+        btnSaks.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                valg = "saks";
             }
         });
         lvNewDevices = (ListView) findViewById(R.id.lvNewDevices);
@@ -124,8 +149,35 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
              String text = intent.getStringExtra("theMessage");
 
              messages.append(text+"\n");
+             if(text=="sten" || text=="saks"||text=="papir"){
+                 if(text==valg){
+                     results_ssp = "Uafgjort ["+text+" vs "+valg+"]";
+                 }
+                 if(text=="sten" && valg=="papir"){
+                     results_ssp = "Du har vundet [sten vs papir]";
+                 }
+                 if(text=="sten" && valg=="saks"){
+                     results_ssp = "Du tabte [sten vs saks]";
+                 }
+                 if(text=="saks" && valg=="papir"){
+                     results_ssp = "Du tabte [saks vs papir]";
+                 }
+                 if(text=="saks" && valg=="sten"){
+                     results_ssp = "Du har vundet [saks vs sten]";
+                 }
+                 if(text=="papir" && valg=="saks"){
+                     results_ssp = "Du har vundet [papir vs saks]";
+                 }
+                 if(text=="papir" && valg=="sten"){
+                     results_ssp = "Du tabte [papir vs sten]";
+                 }
+                 results_ssp = results_ssp+"\n";
+                 incomingMessages.setText(results_ssp);
+             }else{
+                 incomingMessages.setText(messages);
+             }
 
-             incomingMessages.setText(messages);
+
          }
      };
 
