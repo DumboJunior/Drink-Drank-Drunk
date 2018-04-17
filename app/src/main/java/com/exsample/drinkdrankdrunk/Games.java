@@ -40,8 +40,8 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
     Button btnSten;
     Button btnSaks;
     Button btnPapir;
-    String valg = "saks";
-    String results_ssp = "Fejl";
+    String valg = "";
+    String results_ssp = "";
 
     TextView incomingMessages;
     StringBuilder messages;
@@ -172,13 +172,16 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
                  }
                  else if(text.equals("papir") && valg.equals("sten")){
                      results_ssp = "Du tabte [papir vs sten]";
-                 }
-
-             else{
-                 messages.append(text + "\n");
-                 incomingMessages.setText(messages);
+                 }else if(text.contains("vundet")){
+                         results_ssp = "Du tabte";
+                 }else if(text.contains("tabte")){
+                         results_ssp = "Du vandt";
+                 }else {
+                     results_ssp = "";
              }
              incomingMessages.setText(results_ssp);
+             byte[] bytes = results_ssp.getBytes(Charset.defaultCharset());
+             mBluetoothConnection.write(bytes);
          }
 
 
