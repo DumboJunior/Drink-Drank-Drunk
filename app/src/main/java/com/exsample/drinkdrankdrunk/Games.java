@@ -123,18 +123,21 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
             @Override
                     public void onClick(View view){
                     valg = "sten";
+                    incomingMessages.setText("Du har valgt sten, tryk send");
             }
             });
         btnPapir.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 valg = "papir";
+                incomingMessages.setText("Du har valgt papir, tryk send");
             }
         });
         btnSaks.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 valg = "saks";
+                incomingMessages.setText("Du har valgt saks, tryk send");
             }
         });
         lvNewDevices = (ListView) findViewById(R.id.lvNewDevices);
