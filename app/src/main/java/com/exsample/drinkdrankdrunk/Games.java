@@ -154,32 +154,45 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
              //if(text=="sten" || text=="saks"||text=="papir"){
                  if(text.equals(valg)){
                      results_ssp = "Uafgjort ["+text+" vs "+valg+"]";
+                     byte[] bytes = results_ssp.getBytes(Charset.defaultCharset());
+                     mBluetoothConnection.write(bytes);
                  }
                  else if(text.equals("sten") && valg.equals("papir")){
                      results_ssp = "Du har vundet [sten vs papir]";
+                     byte[] bytes = results_ssp.getBytes(Charset.defaultCharset());
+                     mBluetoothConnection.write(bytes);
                  }
                  else if(text.equals("sten") && valg.equals("saks")){
                      results_ssp = "Du tabte [sten vs saks]";
+                     byte[] bytes = results_ssp.getBytes(Charset.defaultCharset());
+                     mBluetoothConnection.write(bytes);
                  }
                  else if(text.equals("saks") && valg.equals("papir")){
                      results_ssp = "Du tabte [saks vs papir]";
+                     byte[] bytes = results_ssp.getBytes(Charset.defaultCharset());
+                     mBluetoothConnection.write(bytes);
                  }
                  else if(text.equals("saks") && valg.equals("sten")){
                      results_ssp = "Du har vundet [saks vs sten]";
+                     byte[] bytes = results_ssp.getBytes(Charset.defaultCharset());
+                     mBluetoothConnection.write(bytes);
                  }
                  else if(text.equals("papir") && valg.equals("saks")){
                      results_ssp = "Du har vundet [papir vs saks]";
+                     byte[] bytes = results_ssp.getBytes(Charset.defaultCharset());
+                     mBluetoothConnection.write(bytes);
                  }
                  else if(text.equals("papir") && valg.equals("sten")){
                      results_ssp = "Du tabte [papir vs sten]";
+                     byte[] bytes = results_ssp.getBytes(Charset.defaultCharset());
+                     mBluetoothConnection.write(bytes);
                  }else if(text.contains("vundet")){
                          results_ssp = "Du tabte";
                  }else if(text.contains("tabte")){
                          results_ssp = "Du vandt";
                  }
              incomingMessages.setText(results_ssp);
-             byte[] bytes = results_ssp.getBytes(Charset.defaultCharset());
-             mBluetoothConnection.write(bytes);
+
          }
 
 
