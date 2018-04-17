@@ -116,7 +116,6 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
             public void onClick(View view) {
                 byte[] bytes = valg.getBytes(Charset.defaultCharset());
                 mBluetoothConnection.write(bytes);
-
                 //etSend.setText("");
             }
         });
@@ -177,6 +176,8 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
                  incomingMessages.setText(messages);
              }
              incomingMessages.setText(results_ssp);
+                 text = "";
+                 valg = "";
          }
 
 
