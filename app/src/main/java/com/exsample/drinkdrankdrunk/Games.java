@@ -36,12 +36,12 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
 
     Button btnStartConnection;
     Button btnSend;
-    EditText etSend;
+    //EditText etSend;
     Button btnSten;
     Button btnSaks;
     Button btnPapir;
-    String valg;
-    String results_ssp;
+    String valg = "saks";
+    String results_ssp = "Fejl";
 
     TextView incomingMessages;
     StringBuilder messages;
@@ -96,7 +96,7 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
 
         btnStartConnection = (Button) findViewById(R.id.btnStartConnection);
         btnSend = (Button) findViewById(R.id.btnSend);
-        etSend = (EditText) findViewById(R.id.editText);
+        //etSend = (EditText) findViewById(R.id.editText);
         btnPapir = (Button) findViewById(R.id.papir);
         btnSaks = (Button) findViewById(R.id.saks);
         btnSten = (Button) findViewById(R.id.sten);
@@ -117,7 +117,7 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
                 byte[] bytes = valg.getBytes(Charset.defaultCharset());
                 mBluetoothConnection.write(bytes);
 
-                etSend.setText("");
+                //etSend.setText("");
             }
         });
         btnSten.setOnClickListener(new View.OnClickListener(){
@@ -147,38 +147,40 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
          @Override
          public void onReceive(Context context, Intent intent) {
              String text = intent.getStringExtra("theMessage");
-
-             messages.append(text+"\n");
-             if(text=="sten" || text=="saks"||text=="papir"){
-                 if(text==valg){
+            Log.d(TAG,"mReceiverMessage: "+text);
+            incomingMessages.setText("");
+             //if(text=="sten" || text=="saks"||text=="papir"){
+                 if(text.equals(valg)){
                      results_ssp = "Uafgjort ["+text+" vs "+valg+"]";
                  }
-                 if(text=="sten" && valg=="papir"){
+                 else if(text.equals("sten") && valg.equals("papir")){
                      results_ssp = "Du har vundet [sten vs papir]";
                  }
-                 if(text=="sten" && valg=="saks"){
+                 else if(text.equals("sten") && valg.equals("saks")){
                      results_ssp = "Du tabte [sten vs saks]";
                  }
-                 if(text=="saks" && valg=="papir"){
+                 else if(text.equals("saks") && valg.equals("papir")){
                      results_ssp = "Du tabte [saks vs papir]";
                  }
-                 if(text=="saks" && valg=="sten"){
+                 else if(text.equals("saks") && valg.equals("sten")){
                      results_ssp = "Du har vundet [saks vs sten]";
                  }
-                 if(text=="papir" && valg=="saks"){
+                 else if(text.equals("papir") && valg.equals("saks")){
                      results_ssp = "Du har vundet [papir vs saks]";
                  }
-                 if(text=="papir" && valg=="sten"){
+                 else if(text.equals("papir") && valg.equals("sten")){
                      results_ssp = "Du tabte [papir vs sten]";
                  }
-                 results_ssp = results_ssp+"\n";
-                 incomingMessages.setText(results_ssp);
-             }else{
+
+             else{
+                 messages.append(text + "\n");
                  incomingMessages.setText(messages);
              }
-
-
+             incomingMessages.setText(results_ssp);
          }
+
+
+
      };
 
     //create method for starting connection
