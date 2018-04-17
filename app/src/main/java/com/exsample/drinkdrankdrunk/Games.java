@@ -176,9 +176,7 @@ public class Games extends NavigationDrawer implements AdapterView.OnItemClickLi
                          results_ssp = "Du tabte";
                  }else if(text.contains("tabte")){
                          results_ssp = "Du vandt";
-                 }else {
-                     results_ssp = "";
-             }
+                 }
              incomingMessages.setText(results_ssp);
              byte[] bytes = results_ssp.getBytes(Charset.defaultCharset());
              mBluetoothConnection.write(bytes);
